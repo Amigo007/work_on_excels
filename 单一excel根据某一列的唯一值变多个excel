@@ -1,0 +1,10 @@
+import pandas as pd
+
+#读取总表
+df=pd.read_excel(r'C:\Users\数据\Desktop\新建文件夹 (2)\新建 Microsoft Excel 工作表.xlsx')
+#筛选某一单列/需要分类的信息所在地
+df2=df[df.duplicated('种类')==False]['种类']
+
+for i in df2:
+    df3=df[df['种类']==i]
+    df3.to_excel(r'C:\Users\数据\Desktop\新建文件夹 (2)\%s.xls' %i)
